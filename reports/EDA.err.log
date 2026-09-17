@@ -1,0 +1,99 @@
+Traceback (most recent call last):
+  File "C:\Users\laure\anaconda3\Lib\site-packages\jupyter_core\utils\__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\laure\anaconda3\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\laure\anaconda3\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\laure\anaconda3\Lib\site-packages\jupyter_core\utils\__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\laure\anaconda3\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\laure\anaconda3\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\laure\anaconda3\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\laure\anaconda3\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+sesgadas = outliers.loc[outliers['Asimetría'].abs() >= 0.5, 'Variable'].tolist()
+resumen_ejecutivo = pd.DataFrame([['Estructura', f'{dimensiones_originales[0]} filas y {dimensiones_originales[1]} columnas originales; {len(train_df)} filas en EDA', 'Reutilizar split y huella del archivo'], ['Tipos', f'{len(num_vars)} numéricas y {len(cat_vars)} categóricas candidatas', 'Codificar y escalar para logística dentro de cada fold'], ['Churn', f'No: {conteo['No']} ({porcentaje['No']:.2f}%); Yes: {conteo['Yes']} ({porcentaje['Yes']:.2f}%)', 'Métricas de clase positiva; comparar pesos en validación interna'], ['Faltantes', '; '.join((f'{c}: {int(faltantes.loc[c, 'Nulos'])} ({faltantes.loc[c, 'Porcentaje (%)']:.2f}%)' for c in columnas_faltantes)) or 'Sin faltantes', 'Comparar imputación aprendida en train e indicador; no asumir cero'], ['Outliers IQR', '; '.join((f'{r['Variable']}: {int(r['Posibles outliers'])}' for _, r in outliers.iterrows())), 'No eliminar por regla mecánica'], ['Asimetría', '|g1| ≥ 0.5: ' + (', '.join(sesgadas) or 'ninguna'), 'Comparar transformación solo en validación interna'], ['Asociación numérica', f'Mayor |r|: {ranking_num.iloc[0]['Variable']} ({ranking_num.iloc[0]['|r|']:.4f})', 'No seleccionar por p-value'], ['Asociación categórica', top_cat, 'Revisar utilidad incremental'], ['Correlaciones altas', texto_altas, 'Revisar coeficientes y regularización'], ['Categorías raras', f'{int(resumen_cat['Categorías <1%'].sum())} categorías bajo 1%', 'Agrupar solo si se justifica en train'], ['Consistencia', f'{int(consistencia['Discrepancias'].sum())} discrepancias de servicios; {duplicados} perfiles coincidentes', 'No confundir perfiles iguales con clientes repetidos']], columns=['Aspecto', 'Hallazgo en las salidas', 'Recomendación preliminar'])
+tabla(resumen_ejecutivo, 'Hallazgos y siguiente etapa')
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mKeyError[39m                                  Traceback (most recent call last)
+[36mFile [39m[32m~\anaconda3\Lib\site-packages\pandas\core\indexes\base.py:3812[39m, in [36mIndex.get_loc[39m[34m(self, key)[39m
+[32m   3811[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m3812[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43m_engine[49m[43m.[49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
+[32m   3813[39m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+
+[36mFile [39m[32mpandas/_libs/index.pyx:167[39m, in [36mpandas._libs.index.IndexEngine.get_loc[39m[34m()[39m
+
+[36mFile [39m[32mpandas/_libs/index.pyx:196[39m, in [36mpandas._libs.index.IndexEngine.get_loc[39m[34m()[39m
+
+[36mFile [39m[32mpandas/_libs/hashtable_class_helper.pxi:7088[39m, in [36mpandas._libs.hashtable.PyObjectHashTable.get_item[39m[34m()[39m
+
+[36mFile [39m[32mpandas/_libs/hashtable_class_helper.pxi:7096[39m, in [36mpandas._libs.hashtable.PyObjectHashTable.get_item[39m[34m()[39m
+
+[31mKeyError[39m: 'No'
+
+The above exception was the direct cause of the following exception:
+
+[31mKeyError[39m                                  Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[132][39m[32m, line 2[39m
+[32m      1[39m sesgadas = outliers.loc[outliers[[33m'[39m[33mAsimetría[39m[33m'[39m].abs() >= [32m0.5[39m, [33m'[39m[33mVariable[39m[33m'[39m].tolist()
+[32m----> [39m[32m2[39m resumen_ejecutivo = pd.DataFrame([[[33m'[39m[33mEstructura[39m[33m'[39m, [33mf[39m[33m'[39m[38;5;132;01m{[39;00mdimensiones_originales[[32m0[39m][38;5;132;01m}[39;00m[33m filas y [39m[38;5;132;01m{[39;00mdimensiones_originales[[32m1[39m][38;5;132;01m}[39;00m[33m columnas originales; [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(train_df)[38;5;132;01m}[39;00m[33m filas en EDA[39m[33m'[39m, [33m'[39m[33mReutilizar split y huella del archivo[39m[33m'[39m], [[33m'[39m[33mTipos[39m[33m'[39m, [33mf[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(num_vars)[38;5;132;01m}[39;00m[33m numéricas y [39m[38;5;132;01m{[39;00m[38;5;28mlen[39m(cat_vars)[38;5;132;01m}[39;00m[33m categóricas candidatas[39m[33m'[39m, [33m'[39m[33mCodificar y escalar para logística dentro de cada fold[39m[33m'[39m], [[33m'[39m[33mChurn[39m[33m'[39m, [33mf[39m[33m'[39m[33mNo: [39m[38;5;132;01m{[39;00m[43mconteo[49m[43m[[49m[33;43m'[39;49m[33;43mNo[39;49m[33;43m'[39;49m[43m][49m[38;5;132;01m}[39;00m[33m ([39m[38;5;132;01m{[39;00mporcentaje[[33m'[39m[33mNo[39m[33m'[39m][38;5;132;01m:[39;00m[33m.2f[39m[38;5;132;01m}[39;00m[33m%); Yes: [39m[38;5;132;01m{[39;00mconteo[[33m'[39m[33mYes[39m[33m'[39m][38;5;132;01m}[39;00m[33m ([39m[38;5;132;01m{[39;00mporcentaje[[33m'[39m[33mYes[39m[33m'[39m][38;5;132;01m:[39;00m[33m.2f[39m[38;5;132;01m}[39;00m[33m%)[39m[33m'[39m, [33m'[39m[33mMétricas de clase positiva; comparar pesos en validación interna[39m[33m'[39m], [[33m'[39m[33mFaltantes[39m[33m'[39m, [33m'[39m[33m; [39m[33m'[39m.join(([33mf[39m[33m'[39m[38;5;132;01m{[39;00mc[38;5;132;01m}[39;00m[33m: [39m[38;5;132;01m{[39;00m[38;5;28mint[39m(faltantes.loc[c,[38;5;250m [39m[33m'[39m[33mNulos[39m[33m'[39m])[38;5;132;01m}[39;00m[33m ([39m[38;5;132;01m{[39;00mfaltantes.loc[c,[38;5;250m [39m[33m'[39m[33mPorcentaje ([39m[33m%[39m[33m)[39m[33m'[39m][38;5;132;01m:[39;00m[33m.2f[39m[38;5;132;01m}[39;00m[33m%)[39m[33m'[39m [38;5;28;01mfor[39;00m c [38;5;129;01min[39;00m columnas_faltantes)) [38;5;129;01mor[39;00m [33m'[39m[33mSin faltantes[39m[33m'[39m, [33m'[39m[33mComparar imputación aprendida en train e indicador; no asumir cero[39m[33m'[39m], [[33m'[39m[33mOutliers IQR[39m[33m'[39m, [33m'[39m[33m; [39m[33m'[39m.join(([33mf[39m[33m'[39m[38;5;132;01m{[39;00mr[[33m'[39m[33mVariable[39m[33m'[39m][38;5;132;01m}[39;00m[33m: [39m[38;5;132;01m{[39;00m[38;5;28mint[39m(r[[33m'[39m[33mPosibles outliers[39m[33m'[39m])[38;5;132;01m}[39;00m[33m'[39m [38;5;28;01mfor[39;00m _, r [38;5;129;01min[39;00m outliers.iterrows())), [33m'[39m[33mNo eliminar por regla mecánica[39m[33m'[39m], [[33m'[39m[33mAsimetría[39m[33m'[39m, [33m'[39m[33m|g1| ≥ 0.5: [39m[33m'[39m + ([33m'[39m[33m, [39m[33m'[39m.join(sesgadas) [38;5;129;01mor[39;00m [33m'[39m[33mninguna[39m[33m'[39m), [33m'[39m[33mComparar transformación solo en validación interna[39m[33m'[39m], [[33m'[39m[33mAsociación numérica[39m[33m'[39m, [33mf[39m[33m'[39m[33mMayor |r|: [39m[38;5;132;01m{[39;00mranking_num.iloc[[32m0[39m][[33m'[39m[33mVariable[39m[33m'[39m][38;5;132;01m}[39;00m[33m ([39m[38;5;132;01m{[39;00mranking_num.iloc[[32m0[39m][[33m'[39m[33m|r|[39m[33m'[39m][38;5;132;01m:[39;00m[33m.4f[39m[38;5;132;01m}[39;00m[33m)[39m[33m'[39m, [33m'[39m[33mNo seleccionar por p-value[39m[33m'[39m], [[33m'[39m[33mAsociación categórica[39m[33m'[39m, top_cat, [33m'[39m[33mRevisar utilidad incremental[39m[33m'[39m], [[33m'[39m[33mCorrelaciones altas[39m[33m'[39m, texto_altas, [33m'[39m[33mRevisar coeficientes y regularización[39m[33m'[39m], [[33m'[39m[33mCategorías raras[39m[33m'[39m, [33mf[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mint[39m(resumen_cat[[33m'[39m[33mCategorías <1[39m[33m%[39m[33m'[39m].sum())[38;5;132;01m}[39;00m[33m categorías bajo 1%[39m[33m'[39m, [33m'[39m[33mAgrupar solo si se justifica en train[39m[33m'[39m], [[33m'[39m[33mConsistencia[39m[33m'[39m, [33mf[39m[33m'[39m[38;5;132;01m{[39;00m[38;5;28mint[39m(consistencia[[33m'[39m[33mDiscrepancias[39m[33m'[39m].sum())[38;5;132;01m}[39;00m[33m discrepancias de servicios; [39m[38;5;132;01m{[39;00mduplicados[38;5;132;01m}[39;00m[33m perfiles coincidentes[39m[33m'[39m, [33m'[39m[33mNo confundir perfiles iguales con clientes repetidos[39m[33m'[39m]], columns=[[33m'[39m[33mAspecto[39m[33m'[39m, [33m'[39m[33mHallazgo en las salidas[39m[33m'[39m, [33m'[39m[33mRecomendación preliminar[39m[33m'[39m])
+[32m      3[39m tabla(resumen_ejecutivo, [33m'[39m[33mHallazgos y siguiente etapa[39m[33m'[39m)
+
+[36mFile [39m[32m~\anaconda3\Lib\site-packages\pandas\core\series.py:1133[39m, in [36mSeries.__getitem__[39m[34m(self, key)[39m
+[32m   1130[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._values[key]
+[32m   1132[39m [38;5;28;01melif[39;00m key_is_scalar:
+[32m-> [39m[32m1133[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43m_get_value[49m[43m([49m[43mkey[49m[43m)[49m
+[32m   1135[39m [38;5;66;03m# Convert generator to list before going through hashable part[39;00m
+[32m   1136[39m [38;5;66;03m# (We will iterate through the generator there to check for slices)[39;00m
+[32m   1137[39m [38;5;28;01mif[39;00m is_iterator(key):
+
+[36mFile [39m[32m~\anaconda3\Lib\site-packages\pandas\core\series.py:1249[39m, in [36mSeries._get_value[39m[34m(self, label, takeable)[39m
+[32m   1246[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._values[label]
+[32m   1248[39m [38;5;66;03m# Similar to Index.get_value, but we do not fall back to positional[39;00m
+[32m-> [39m[32m1249[39m loc = [38;5;28;43mself[39;49m[43m.[49m[43mindex[49m[43m.[49m[43mget_loc[49m[43m([49m[43mlabel[49m[43m)[49m
+[32m   1251[39m [38;5;28;01mif[39;00m is_integer(loc):
+[32m   1252[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m._values[loc]
+
+[36mFile [39m[32m~\anaconda3\Lib\site-packages\pandas\core\indexes\base.py:3819[39m, in [36mIndex.get_loc[39m[34m(self, key)[39m
+[32m   3814[39m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(casted_key, [38;5;28mslice[39m) [38;5;129;01mor[39;00m (
+[32m   3815[39m         [38;5;28misinstance[39m(casted_key, abc.Iterable)
+[32m   3816[39m         [38;5;129;01mand[39;00m [38;5;28many[39m([38;5;28misinstance[39m(x, [38;5;28mslice[39m) [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m casted_key)
+[32m   3817[39m     ):
+[32m   3818[39m         [38;5;28;01mraise[39;00m InvalidIndexError(key)
+[32m-> [39m[32m3819[39m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01merr[39;00m
+[32m   3820[39m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
+[32m   3821[39m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
+[32m   3822[39m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
+[32m   3823[39m     [38;5;66;03m#  the TypeError.[39;00m
+[32m   3824[39m     [38;5;28mself[39m._check_indexing_error(key)
+
+[31mKeyError[39m: 'No'
+
