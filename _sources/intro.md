@@ -1,6 +1,6 @@
-# Modelo de Clasificación Binaria para la Predicción de Bancarrota Empresarial a partir de Estados Financieros: Dataset Taiwan Economic Journal
+# Modelo de Clasificación Binaria para la Predicción de Abandono de Clientes a partir de Datos de Suscripción: Dataset Telco Customer Churn
 
-***Análisis de Solvencia Corporativa y Riesgo Financiero con Machine Learning*** 
+***Análisis de Retención de Clientes y Riesgo de Abandono (Churn) con Machine Learning***
 
 **Laura Rivera · Natalý Cárdenas** Departamento de Matemáticas, Física y Ciencia de Datos, Universidad del Norte, Barranquilla, Colombia
 `sriveral@uninorte.edu.co` · `nizaquita@uninorte.edu.co`
@@ -111,7 +111,7 @@ Entrenamiento de algoritmos supervisados, optimización de hiperparámetros y ev
 
 :::{seealso} Enlaces de interés
 **Conjunto de datos**
-- [Kaggle — Company Bankruptcy Prediction](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+- [Kaggle — Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 
 **Repositorio del proyecto**
 - [GitHub](https://github.com/lauraformore/Telco_churn_prediction_ML)
