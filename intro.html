@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -415,13 +415,13 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-del-proyecto">Introducción del proyecto</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-del-problema">Contexto del problema</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-del-proyecto">Introducción del proyecto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-del-problema">Contexto del problema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-especificos">Objetivos específicos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-de-las-variables-del-proyecto">Descripción de las variables del proyecto</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-de-las-variables-del-proyecto">Descripción de las variables del proyecto</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-del-analisis">Estructura del Análisis</a></li>
 </ul>
             </nav>
@@ -474,8 +474,9 @@ Metodología</div>
 </div>
 <section id="introduccion-del-proyecto">
 <h2>Introducción del proyecto<a class="headerlink" href="#introduccion-del-proyecto" title="Link to this heading">#</a></h2>
+</section>
 <section id="contexto-del-problema">
-<h3>Contexto del problema<a class="headerlink" href="#contexto-del-problema" title="Link to this heading">#</a></h3>
+<h2>Contexto del problema<a class="headerlink" href="#contexto-del-problema" title="Link to this heading">#</a></h2>
 <p>El customer churn es la cancelación o abandono de un servicio. Comprender las características relacionadas con el abandono permite orientar futuras estrategias de retención. En Machine Learning se plantea como una clasificación binaria: identificar clientes que abandonan y clientes que permanecen.</p>
 <p>Según los <a class="reference external" href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn">datos de Kaggle</a>, cada fila representa un cliente y Churn indica abandono durante el último mes. El conjunto de datos incluye información sobre:</p>
 <ul class="simple">
@@ -487,9 +488,8 @@ Inspiración</p></li>
 </ul>
 </section>
 <section id="objetivo-general">
-<h3>Objetivo general<a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h3>
+<h2>Objetivo general<a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h2>
 <p>Desarrollar y evaluar modelos de Machine Learning para predecir la cancelación de clientes de telecomunicaciones con el dataset Telco Customer Churn, partiendo de una regresión logística y comparando alternativas mediante una metodología reproducible que priorice la generalización y evite la fuga de información.</p>
-</section>
 <section id="objetivos-especificos">
 <h3>Objetivos específicos<a class="headerlink" href="#objetivos-especificos" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -501,8 +501,9 @@ Inspiración</p></li>
 <li><p>Interpretar los resultados y las limitaciones del modelo para formular conclusiones sobre su utilidad potencial en retención de clientes, sin atribuir causalidad a las asociaciones observadas.</p></li>
 </ul>
 </section>
+</section>
 <section id="descripcion-de-las-variables-del-proyecto">
-<h3>Descripción de las variables del proyecto<a class="headerlink" href="#descripcion-de-las-variables-del-proyecto" title="Link to this heading">#</a></h3>
+<h2>Descripción de las variables del proyecto<a class="headerlink" href="#descripcion-de-las-variables-del-proyecto" title="Link to this heading">#</a></h2>
 <p>Diccionario resumido de los metadatos de Kaggle:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -623,7 +624,6 @@ Inspiración</p></li>
 </div>
 <p>El identificador no representa una característica explicativa. Los demás campos son candidatos.</p>
 </section>
-</section>
 <section id="estructura-del-analisis">
 <h2>Estructura del Análisis<a class="headerlink" href="#estructura-del-analisis" title="Link to this heading">#</a></h2>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
@@ -722,13 +722,13 @@ Inspiración</p></li>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-del-proyecto">Introducción del proyecto</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-del-problema">Contexto del problema</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion-del-proyecto">Introducción del proyecto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contexto-del-problema">Contexto del problema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-especificos">Objetivos específicos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-de-las-variables-del-proyecto">Descripción de las variables del proyecto</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-de-las-variables-del-proyecto">Descripción de las variables del proyecto</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-del-analisis">Estructura del Análisis</a></li>
 </ul>
   </nav></div>

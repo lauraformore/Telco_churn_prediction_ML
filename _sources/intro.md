@@ -30,7 +30,7 @@ EDA · Feature Engineering · Modelos de Clasificación
 
 ## Introducción del proyecto
 
-### Contexto del problema
+## Contexto del problema
 El customer churn es la cancelación o abandono de un servicio. Comprender las características relacionadas con el abandono permite orientar futuras estrategias de retención. En Machine Learning se plantea como una clasificación binaria: identificar clientes que abandonan y clientes que permanecen.
 
 Según los [datos de Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn), cada fila representa un cliente y Churn indica abandono durante el último mes. El conjunto de datos incluye información sobre:
@@ -43,7 +43,7 @@ Servicios que cada cliente ha contratado: teléfono, líneas múltiples, interne
 - Información demográfica sobre los clientes: género, rango de edad y si tienen pareja o personas a su cargo.
 Inspiración
 
-### Objetivo general
+## Objetivo general
 Desarrollar y evaluar modelos de Machine Learning para predecir la cancelación de clientes de telecomunicaciones con el dataset Telco Customer Churn, partiendo de una regresión logística y comparando alternativas mediante una metodología reproducible que priorice la generalización y evite la fuga de información.
 
 ### Objetivos específicos
@@ -59,7 +59,7 @@ Desarrollar y evaluar modelos de Machine Learning para predecir la cancelación 
 
 - Interpretar los resultados y las limitaciones del modelo para formular conclusiones sobre su utilidad potencial en retención de clientes, sin atribuir causalidad a las asociaciones observadas.
 
-### Descripción de las variables del proyecto
+## Descripción de las variables del proyecto
 Diccionario resumido de los metadatos de Kaggle:
 
 | Variable | Tipo conceptual | Significado | Papel |
